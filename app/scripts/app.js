@@ -16,8 +16,6 @@ angular
     ,'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'directive.g+signin',
-    'toastr',
     'ui.router'
   ])
 
@@ -63,13 +61,8 @@ angular
             url: '/registration',
             templateUrl: 'views/registration-form.html'
 
-        })
-
-         .state('requisition', {
-            url: '/requisition',
-            templateUrl: 'views/requisition.html'
-
         });
+       
 
 
   })
