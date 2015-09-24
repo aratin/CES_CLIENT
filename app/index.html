@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Clarion Enterprize Services</title>
+    <!-- BEGIN META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="your,keywords">
+    <meta name="description" content="Short explanation about this website">
+    <!-- END META -->
+
+    <!-- BEGIN STYLESHEETS -->
+    <link href="http://fonts.googleapis.com/css?family=Roboto:300italic,400italic,300,400,500,700,900" rel="stylesheet" type="text/css"/>
+    <link type="text/css" rel="stylesheet" href="styles/assets/css/theme-default/bootstrap.css" />
+    <link type="text/css" rel="stylesheet" href="styles/assets/css/theme-default/materialadmin.css" />
+    <link type="text/css" rel="stylesheet" href="styles/assets/css/theme-default/font-awesome.min.css" />
+    <link type="text/css" rel="stylesheet" href="styles/assets/css/theme-default/material-design-iconic-font.min.css"/>
+    <link type="text/css" rel="stylesheet" href="styles/assets/css/theme-default/styles.css" />
+    <!-- END STYLESHEETS -->
+
+    <!--Angularjs css>-->
+   <!--  <link rel="stylesheet" type="text/css" href="bower_components/angular-toastr/dist/angular-toastr.css"> -->
+    
+  </head>     
+   <body ng-app="clarionEnterpriseApp" class="menubar-hoverable header-fixed login">
+    <div class="img-backdrop" style="background-image: url('styles/assets/img/bg-login.jpg')"></div>
+   
+    <div ui-view=""></div>
+   
+    
+
+    <!-- <div class="footer">
+      <div class="container">
+        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+      </div>
+    </div> -->
+
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+     <script>
+       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script>
+    <!--> Design js-->
+      <script src="styles/assets/js/libs/jquery/jquery-1.11.2.min.js"></script>
+      <script src="styles/assets/js/libs/jquery/jquery-migrate-1.2.1.min.js"></script>
+      <script src="styles/assets/js/libs/bootstrap/bootstrap.min.js"></script>
+      <script src="styles/assets/js/libs/spin.js/spin.min.js"></script>
+      <script src="styles/assets/js/libs/autosize/jquery.autosize.min.js"></script>
+      <script src="styles/assets/js/libs/nanoscroller/jquery.nanoscroller.min.js"></script>
+      <script src="styles/assets/js/core/source/App.js"></script>
+      <script src="styles/assets/js/core/source/AppNavigation.js"></script>
+      <script src="styles/assets/js/core/source/AppOffcanvas.js"></script>
+      <script src="styles/assets/js/core/source/AppCard.js"></script>
+      <script src="styles/assets/js/core/source/AppForm.js"></script>
+      <script src="styles/assets/js/core/source/AppNavSearch.js"></script>
+      <script src="styles/assets/js/core/source/AppVendor.js"></script>
+      <script src="styles/assets/js/core/demo/Demo.js"></script>
+
+
+   <!-->Angular js  -->
+      <script src="bower_components/angular/angular.js"></script>
+      <script src="bower_components/angular-animate/angular-animate.js"></script>
+      <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+      <script src="bower_components/angular-resource/angular-resource.js"></script>
+      <script src="bower_components/angular-route/angular-route.js"></script>
+      <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+      <script src="bower_components/angular-touch/angular-touch.js"></script>
+      <script src="bower_components/google-plus-signin.js"></script>
+      <script src="bower_components/angular-toastr/dist/angular-toastr.js"></script>
+      <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+      <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+
+
+     
+
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/services/app-service.js"></script>
+        <script src="scripts/services/auth-factory.js"></script>
+        <script src="scripts/controllers/login.js"></script>
+        <script src="scripts/controllers/forgot-password.js"></script>
+        <script src="scripts/controllers/reset-password.js"></script>
+        <script src="scripts/services/urls.js"></script>
+        <!-- endbuild -->
+</body>
+</html>

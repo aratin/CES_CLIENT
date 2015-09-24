@@ -1,0 +1,50 @@
+<div class="card col-xs-10 col-sm-6 col-md-5 col-lg-3 form-signin">
+	<div class="row"><div class="form-signin-logo text-center card-head bg-login-head">
+		<img src="styles/assets/img/logo.png" alt=""></div></div>
+			<div class="card-body">
+				<div class="row">
+					<div class="col-sm-12">
+						<div ng-show="error" class="alert alert-danger"><i class="glyphicon glyphicon-exclamation-sign"></i>{{error}}</div>
+						<form name="signin_form" class="form floating-label">
+							<div class="form-group" ng-class="{ 'has-error': signin_form.email.$dirty && signin_form.email.$error.required }">
+								<input type="text" class="form-control" name="email" ng-model="email" required />
+								<span class="text-danger" ng-show="signin_form.email.$dirty && signin_form.email.$invalid">
+                        			<span class="help-block" ng-show="signin_form.email.$error.required">Email is required.</span>
+                    			</span>
+								<label for="username">Username</label>
+							</div>
+							<div class="form-group" 
+								ng-class="{ 'has-error': signin_form.password.$dirty && signin_form.password.$error.required }">
+								<input type="password" class="form-control"name="password" id="password" 
+									  ng-model="password" required />
+			                    <span class="text-danger" ng-show="signin_form.password.$dirty && signin_form.password.$invalid">
+			                        <span class="help-block" ng-show="signin_form.password.$error.required">Password is required.</span>
+			                    </span>
+								<label for="password">Password</label>
+							</div>
+							<div class="row">
+								<div class="col-xs-6 text-left">
+									<div class="checkbox checkbox-inline checkbox-styled">
+										<label>
+											<input type="checkbox"> <span>Remember me</span>
+										</label>
+									</div>
+								</div><!--end .col -->
+								<div class="col-xs-6 text-right">
+									<p class="help-block"><a ui-sref="forgotPassword">Forgotten?</a></p>
+								</div><!--end .col -->
+							</div><!--end .row -->
+	                        <div class="row">
+		                        <br>
+		                       		<button class="btn btn-block btn-info btn-raised" ng-disabled="signin_form.$invalid" type="submit" ng-click="login()">Login</button>
+		                        <br>
+		                        <p>
+									<a href="http://192.168.61.24:4000/auth/google" class="btn btn-block btn-raised btn-danger"><i class="fa fa-google pull-left"></i>Login with Google</a>
+								</p>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+				
