@@ -30,12 +30,10 @@ angular.module('clarionEnterpriseApp')
 
             authFactory.login(param).then(function (response){
             	 console.log(response);
-            	 if(response.success){
-            	 	alert('login sucessfully');
-            	 }else{
-            	 	scope.error = response.message;
-            	 }
-            	  // $location.url("/logout");
+            	 localStorage.setItem("userData", JSON.stringify(response.data));
+            	 	$location.url("/loginsuccess");
+            	
+            	  
             });
       };
  

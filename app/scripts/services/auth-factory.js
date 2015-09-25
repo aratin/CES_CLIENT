@@ -25,6 +25,7 @@ angular.module('clarionEnterpriseApp')
         });
       },
 
+      
       //forgot password post the data
       forgotPassword: function (email) {
         var url = urls.API_DOMAIN + urls.FORGOT_PASSWORD;
