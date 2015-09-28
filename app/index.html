@@ -27,7 +27,7 @@
   </head>     
    <body ng-app="clarionEnterpriseApp" class="menubar-hoverable header-fixed login">
     <div class="img-backdrop" style="background-image: url('styles/assets/img/bg-login.jpg')"></div>
-   
+   <div ui-view="navBar"></div>
     <div ui-view=""></div>
    
     
@@ -76,9 +76,6 @@
       <script src="bower_components/angular-touch/angular-touch.js"></script>
       <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 
-
-     
-
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
@@ -91,6 +88,9 @@
         <script src="scripts/services/urls.js"></script>
         <script src="scripts/controllers/remember-password.js"></script>
         <script src="scripts/services/base64.js"></script>
-        <!-- endbuild -->
+        <script src="scripts/controllers/nav-bar.js"></script>
+        <script src="scripts/controllers/menu-bar.js"></script>
+        <script src="scripts/controllers/dashboard.js"></script>
+    <!-- endbuild -->
 </body>
 </html>

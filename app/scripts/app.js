@@ -61,10 +61,24 @@ angular
             url: '/registration',
             templateUrl: 'views/registration-form.html'
 
-        });
-       
+        })
 
-
+        //dashboard 
+         .state('dashboard', {
+        url: '/dashboard',
+        views: {
+          '@': {
+            templateUrl: 'views/dashboard.html',
+            controller: 'DashboardCtrl'
+          },
+          'navBar': {
+            templateUrl: 'views/nav-bar.html'
+          },
+          'menuBar': {
+            templateUrl: 'views/menu-bar.html'
+          }
+        }
+      })
   })
 
 
