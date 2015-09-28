@@ -4,10 +4,10 @@
 			<div class="card-body">
 				<div class="row">
 					<div class="col-sm-12">
-						<!-- <div ng-if="error" class="alert alert-danger"><i class="glyphicon glyphicon-exclamation-sign"></i>{{error}}</div> -->
+						<div ng-if="vm.flag" class="alert alert-danger"><i class="glyphicon glyphicon-exclamation-sign"></i>{{vm.message}}</div>
 						<form name="signin_form" class="form floating-label">
 							<div class="form-group" ng-class="{ 'has-error': signin_form.email.$dirty && signin_form.email.$error.required }">
-								<input type="text" class="form-control" name="email" ng-model="email" required />
+								<input type="text" class="form-control" name="email" ng-model="vm.email" required />
 								<span class="text-danger" ng-show="signin_form.email.$dirty && signin_form.email.$invalid">
                         			<span class="help-block" ng-show="signin_form.email.$error.required">Email is required.</span>
                     			</span>
@@ -16,7 +16,7 @@
 							<div class="form-group" 
 								ng-class="{ 'has-error': signin_form.password.$dirty && signin_form.password.$error.required }">
 								<input type="password" class="form-control"name="password" id="password" 
-									  ng-model="password" required />
+									  ng-model="vm.password" required />
 			                    <span class="text-danger" ng-show="signin_form.password.$dirty && signin_form.password.$invalid">
 			                        <span class="help-block" ng-show="signin_form.password.$error.required">Password is required.</span>
 			                    </span>

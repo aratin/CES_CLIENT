@@ -82,6 +82,18 @@ angular
   })
 
 
+.run(function($rootScope,$window) {
+        $rootScope.socket= null;
+        $rootScope.$on('$stateChangeSuccess',
+        function(event, toState, toParams, fromState, fromParams){
+            var session_Id =JSON.parse(sessionStorage.getItem('userData'));               
+               if (!session_Id) {
+                templateUrl : 'views/login.html';
+                //$window.location.href = 'login.html';
+               }
+            }
+        )
+  });
 
   // .run(function ($rootScope, $location, $cookieStore, $http) {
   //         // keep user logged in after page refresh
@@ -89,7 +101,7 @@ angular
   //         if ($rootScope.globals.currentUser) {
   //             $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
   //         }
-  .run(function ($rootScope, $location, $cookieStore, $http) {
+  /*.run(function ($rootScope, $location, $cookieStore, $http) {
           // keep user logged in after page refresh
           $rootScope.globals = $cookieStore.get('globals') || {};
           if ($rootScope.globals.currentUser) {
@@ -102,4 +114,4 @@ angular
                   $location.path('/login');
               }
           });
-      })
+      })*/
