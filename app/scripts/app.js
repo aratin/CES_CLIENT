@@ -95,23 +95,35 @@ angular
         )
   });
 
-  // .run(function ($rootScope, $location, $cookieStore, $http) {
-  //         // keep user logged in after page refresh
-  //         $rootScope.globals = $cookieStore.get('globals') || {};
-  //         if ($rootScope.globals.currentUser) {
-  //             $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
-  //         }
-  /*.run(function ($rootScope, $location, $cookieStore, $http) {
-          // keep user logged in after page refresh
-          $rootScope.globals = $cookieStore.get('globals') || {};
-          if ($rootScope.globals.currentUser) {
-              $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
-          }
-    
-          $rootScope.$on('$locationChangeStart', function (event, next, current) {
-              // redirect to login page if not logged in
-              if ($location.path() !== '/login' && !$rootScope.globals.currentUser) {
-                  $location.path('/login');
-              }
-          });
-      })*/
+  // .run(function ($rootScope, $location, $state, authFactory, $log, $window) {
+  //   // store the current state in the root-scope
+  //   $rootScope.$state = $state;
+
+  //   $rootScope.$on('$stateChangeStart', function (event, toState) {
+  //     $log.debug(event);
+  //     // check if already logged in
+  //     if (!authFactory.isLoggedIn()) {
+  //       $rootScope.isLoggedIn = false;
+
+  //       // if not logged in, only redirect to sign-in for the secure pages
+  //       if (toState.name !== 'login' && toState.name !== 'loginsuccess' &&
+  //         toState.name !== 'dashboard' && toState.name !== 'registration' &&
+  //         toState.name !== 'resetPassword' && toState.name !== 'forgotPassword') {
+  //         $location.path('/login');
+  //       }
+  //     } else {
+  //       $rootScope.isLoggedIn = true;
+
+  //       // redirect to Mashup, if user is an end user
+  //       // redirect to dashboard, if user is a developer and already logged in
+  //       // if(AuthFactory.getUserRole().toLowerCase() === roles.USER.toLowerCase()){
+  //       //   $window.open('http://crossarm.clarionworld.com', '_self');
+  //       // } else {
+  //       //   if (toState.name === 'signIn') {
+  //       //     $location.path('/dashboard');
+  //       //   }
+  //       // }
+  //     }
+  //   });
+  // });
+

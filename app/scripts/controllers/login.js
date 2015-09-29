@@ -29,13 +29,12 @@ angular.module('clarionEnterpriseApp')
     };
 
     authFactory.login(param).then(function (response){
-       console.log(response);
-        if(angular.equals(response.data.email,$scope.vm.email)) {
-            response.password = $scope.vm.password;
+        if(response.data && angular.equals(response.data.email,$scope.vm.email)) {
+            // response.password = $scope.vm.password;
             // $rootScope.socketObj;
             sessionStorage.setItem("userData", JSON.stringify(response));
             //$window.location.href = 'login.html';
-            $location.url("/loginsuccess");
+            $location.url("/dashboard");
         } else {
             $scope.vm.flag= true;
             $scope.vm.message = "Invalid username or password";
@@ -45,45 +44,4 @@ angular.module('clarionEnterpriseApp')
   };
 });
 
-		/*var param ={
-                email : $scope.email,
-                password :$scope.password
-            };
-
-            authFactory.login(param).then(function (response){
-            	 console.log(response);
-            	 localStorage.setItem("userData", JSON.stringify(response.data));
-            	 	$location.url("/loginsuccess");
-            	
-            	  
-            });
-      };*/
- 
-/*mayuri.zingade@clariontechnologies.co.in
-
-   //  $scope.login = function () {  
-		 // $scope.vm = {
-		 //            message: "",
-		 //            flag: false,
-		 //            email: '',
-		 //            password:'' 
-		 //    };              
-   //      var param ={
-   //          email : $scope.vm.email,
-   //          password : $scope.vm.password
-   //      };
-   //      authFactory.login(param)
-   //          .success(function (response) {
-   //          	console.log("login sucess");               
-   //              if(angular.equals(response.name,$scope.vm.email)) {
-   //                  response.password = $scope.vm.password;
-   //              } else {
-   //                  $scope.vm.flag= true;
-   //                  $scope.vm.message = "Invalid username or password";
-   //              }               
-   //      });
-   //  };
- 
-  });
-*/
-  
+		

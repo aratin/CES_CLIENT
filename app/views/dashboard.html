@@ -1,8 +1,7 @@
 <!-- BEGIN BASE-->
 <div id="base"></div>
-
-	<!-- BEGIN OFFCANVAS LEFT -->
-	<div class="offcanvas"></div><!--end .offcanvas-->
+    <!-- BEGIN OFFCANVAS LEFT -->
+    <div class="offcanvas"></div><!--end .offcanvas-->
 	<!-- END OFFCANVAS LEFT -->
 
 	<!-- BEGIN CONTENT-->
@@ -13,11 +12,11 @@
 					<form class="form-horizontal">
 						<div class="card">
                             <div class="card-head style-info">
-                                        <header>Requisition Form</header>
+                                <header>Requisition Form</header>
                             </div>
                             <div class="card-body">
                             	<div class="form-group">
-                                    <label class="col-sm-3 control-label" for="Username5">Assignment Type</label>
+                                    <label class="col-sm-3 control-label" for="Username5">      Assignment Type</label>
                                     <div class="col-sm-8">
                                       	<label class="radio-inline radio-styled">
 											<input type="radio" name="inlineRadioOptions" value="option1"><span>Billable</span>
@@ -25,45 +24,29 @@
 										<label class="radio-inline radio-styled">
 											<input type="radio" name="inlineRadioOptions" value="option2"><span>Non-Billable</span>
 										</label>
-										
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label" for="Username5">Customer Name</label>
+                                    <label class="col-sm-3 control-label" for="Username5">      Customer Name</label>
                                     <div class="col-sm-6">
-                                        <select id="a" name="select13" class="form-control">
-                                            <option value="">&nbsp;</option>
-                                            <option value="">Clarion technologies</option>
-                                            <option value="40">Golden comm</option>
-                                            <option value="50">Smart Dealer</option>
-                                            <option value="60">G8way Health</option>
-                                            <option value="70">Minute2go</option>
+                                        <select id="a" name="select13" class="form-control"ng-model="selectedcustomerName">
+                                            <option ng-repeat="customerName in customerNames" value="{{customerName.name}}">{{customerName.name}}</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label" for="Username5">Certainty</label>
                                     <div class="col-sm-6">
-                                        <select id="b" name="select13" class="form-control">
-                                            <option value="">&nbsp;</option>
-                                            <option value="">Clarion technologies</option>
-                                            <option value="40">Golden comm</option>
-                                            <option value="50">Smart Dealer</option>
-                                            <option value="60">G8way Health</option>
-                                            <option value="70">Minute2go</option>
+                                        <select id="b" name="select13" class="form-control"ng-model="selectedcertainty">
+                                            <option ng-repeat="certainty in certaintys" value="{{certainty.name}}">{{certainty.name}}</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label" for="Username5">Criticality</label>
                                     <div class="col-sm-6">
-                                        <select id="c" name="select13" class="form-control">
-                                            <option value="">&nbsp;</option>
-                                            <option value="">Clarion technologies</option>
-                                            <option value="40">Golden comm</option>
-                                            <option value="50">Smart Dealer</option>
-                                            <option value="60">G8way Health</option>
-                                            <option value="70">Minute2go</option>
+                                         <select id="b" name="select13" class="form-control"ng-model="selectedcriticality">
+                                            <option ng-repeat="criticality in criticalitys" value="{{criticality.name}}">{{criticality.name}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -88,13 +71,8 @@
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label" for="Username5">Anticipated Duration</label>
                                     <div class="col-sm-6">
-                                        <select id="d" name="select13" class="form-control">
-                                            <option value="">&nbsp;</option>
-                                            <option value="">Clarion technologies</option>
-                                            <option value="">Golden comm</option>
-                                            <option value="">Smart Dealer</option>
-                                            <option value="">G8way Health</option>
-                                            <option value="">Minute2go</option>
+                                       <select id="d" name="select13" class="form-control"ng-model="selectedanticipatedDurations">
+                                            <option ng-repeat="anticipatedDuration in anticipatedDurations" value="{{anticipatedDuration.name}}">{{anticipatedDuration.name}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -128,13 +106,8 @@
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label" for="Username5">Core Technology</label>
                                     <div class="col-sm-6">
-                                        <select id="e" name="select13" class="form-control">
-                                            <option value="">&nbsp;</option>
-                                            <option value="">.Net</option>
-                                            <option value="">JAVA</option>
-                                            <option value="">Angular</option>
-                                            <option value="">Node JS</option>
-                                            
+                                        <select id="e" name="select13" class="form-control"ng-model="selectedtechnologys">
+                                            <option ng-repeat="technology in technologys" value="{{technology.name}}">{{technology.name}}</option>
                                         </select>
                                     </div>
                                 </div>

@@ -27,16 +27,14 @@ angular.module('clarionEnterpriseApp')
 
       
       //forgot password post the data
-      forgotPassword: function (email) {
+      forgotPassword: function (user) {
         var url = urls.API_DOMAIN + urls.FORGOT_PASSWORD;
         // console.log(url);
         return $http({
           method: 'POST',
           headers: {'Content-Type': 'application/json'},
           url: url,
-          data:{
-          	'email':email
-          }
+          data:user
 
         }).then(function (result) {
         	console.log(result);
