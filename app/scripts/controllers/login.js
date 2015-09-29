@@ -23,6 +23,7 @@ angular.module('clarionEnterpriseApp')
   * by calling AuthFactory service's login()
   */
 	$scope.login = function () {
+   
     var param ={
         email : $scope.vm.email,
         password :$scope.vm.password

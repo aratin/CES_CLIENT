@@ -5,21 +5,18 @@
 				<div class="row">
 					<div class="col-sm-12">
 						<div ng-if="vm.flag" class="alert alert-danger"><i class="glyphicon glyphicon-exclamation-sign"></i>{{vm.message}}</div>
-						<form name="signin_form" class="form floating-label">
-							<div class="form-group" ng-class="{ 'has-error': signin_form.email.$dirty && signin_form.email.$error.required }">
-								<input type="text" class="form-control" name="email" ng-model="vm.email" required />
-								<span class="text-danger" ng-show="signin_form.email.$dirty && signin_form.email.$invalid">
-                        			<span class="help-block" ng-show="signin_form.email.$error.required">Email is required.</span>
-                    			</span>
+						<form name="signin_form" class="form floating-label" 
+							  ng-submit="login()" novalidate>
+							<div class="form-group" >
+								<input type="email" class="form-control" name="email" ng-model="vm.email" required />
+								 <span ng-show="signin_form.email.$dirty && signin_form.email.$error.required">Email is required.</span>
+        						<span ng-show="signin_form.email.$dirty && signin_form.email.$error.email">Invalid Email address.</span>
 								<label for="username">Username</label>
 							</div>
 							<div class="form-group" 
 								ng-class="{ 'has-error': signin_form.password.$dirty && signin_form.password.$error.required }">
-								<input type="password" class="form-control"name="password" id="password" 
-									  ng-model="vm.password" required />
-			                    <span class="text-danger" ng-show="signin_form.password.$dirty && signin_form.password.$invalid">
-			                        <span class="help-block" ng-show="signin_form.password.$error.required">Password is required.</span>
-			                    </span>
+								<input type="password" class="form-control"name="password" id="password" ng-model="vm.password" required />
+			                    <span ng-show="signin_form.password.$dirty && signin_form.password.$error.required">Password is required.</span>
 								<label for="password">Password</label>
 							</div>
 							<div class="row">
@@ -36,7 +33,7 @@
 							</div><!--end .row -->
 	                        <div class="row">
 		                        <br>
-		                       		<button class="btn btn-block btn-info btn-raised" ng-disabled="signin_form.$invalid" type="submit" ng-click="login()">Login</button>
+		                       		<button class="btn btn-block btn-info btn-raised"  type="submit" >Login</button>
 		                        <br>
 		                        <p>
 									<a href="http://192.168.61.24:4000/auth/google" class="btn btn-block btn-raised btn-danger"><i class="fa fa-google pull-left"></i>Login with Google</a>

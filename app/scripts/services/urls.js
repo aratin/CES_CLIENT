@@ -12,6 +12,6 @@ angular.module('clarionEnterpriseApp')
   		API_DOMAIN :'http://192.168.61.24:4000/',
     	 LOGIN : 'login',
     	 FORGOT_PASSWORD:'forgotpassword',
-    	 UPDATE_FORGOTPASSWORD:'updateforgotpassword'
-  		
+    	 UPDATE_FORGOTPASSWORD:'updateforgotpassword',
+    	 CHANGE_PASSWORD:'changepassword'
   });

@@ -27,14 +27,16 @@ angular.module('clarionEnterpriseApp')
 
       
       //forgot password post the data
-      forgotPassword: function (user) {
+      forgotPassword: function (email) {
         var url = urls.API_DOMAIN + urls.FORGOT_PASSWORD;
         // console.log(url);
         return $http({
           method: 'POST',
           headers: {'Content-Type': 'application/json'},
           url: url,
-          data:user
+          data:{
+            'email':email
+          }
 
         }).then(function (result) {
         	console.log(result);
@@ -59,6 +61,21 @@ angular.module('clarionEnterpriseApp')
 		// return $http.post(url, data);
        },
 
+       // Change password 
+      changePassword: function (data) {
+        var url = urls.API_DOMAIN + urls.CHANGE_PASSWORD;
+         console.log(url);
+        return $http({
+          method: 'POST',
+          headers: {'Content-Type': 'application/json','Access-Token': ''},
+          url: url,
+          data: data
+        }).then(function (result) {
+          console.log(result);
+          return result.data;
+      });
+    },
+       
       //remember usrname/password
       rememberPassword: function(data) {
             function fetchValue(data) {
