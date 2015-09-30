@@ -63,11 +63,12 @@ angular.module('clarionEnterpriseApp')
 
        // Change password 
       changePassword: function (data) {
-        var url = urls.API_DOMAIN + urls.CHANGE_PASSWORD;
-         console.log(url);
+         var url = urls.API_DOMAIN + urls.CHANGE_PASSWORD;
+         var userData =JSON.parse(sessionStorage.getItem('userData'));    
+         console.log(userData.data['sessionId']);
         return $http({
           method: 'POST',
-          headers: {'Content-Type': 'application/json','Access-Token': ''},
+          headers: {'Content-Type': 'application/json','session-id': userData.data['sessionId']},
           url: url,
           data: data
         }).then(function (result) {
@@ -75,7 +76,17 @@ angular.module('clarionEnterpriseApp')
           return result.data;
       });
     },
-       
+     logout: function () {
+       var url = urls.API_DOMAIN + urls.LOGOUT;
+       var userData =JSON.parse(sessionStorage.getItem('userData'));    
+        return $http({
+          method: 'GET',
+          headers: {'Content-Type': 'application/json', 'session-id': userData.data['sessionId']},
+          url: url
+        }).then(function (result) {
+          
+        });
+      },
       //remember usrname/password
       rememberPassword: function(data) {
             function fetchValue(data) {

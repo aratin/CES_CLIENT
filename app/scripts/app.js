@@ -34,11 +34,18 @@ angular
         })
 
          // logout
-        .state('loginsuccess', {
-            url: '/loginsuccess',
-            templateUrl: 'views/loginsuccess.html'
+        .state('logout', {
+            url: '/logout?redirectUrl',
+            views: {
+              '@': {
+                controller: function(authFactory){
+                  authFactory.logout();
+                }
+              }
+            }
 
         })
+
         
         // forgot password
         .state('forgotPassword', {

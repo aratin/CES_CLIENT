@@ -34,7 +34,7 @@ angular.module('clarionEnterpriseApp')
             // response.password = $scope.vm.password;
             // $rootScope.socketObj;
             sessionStorage.setItem("userData", JSON.stringify(response));
-            //$window.location.href = 'login.html';
+           
             $location.url("/dashboard");
         } else {
             $scope.vm.flag= true;
