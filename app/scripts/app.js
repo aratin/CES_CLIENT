@@ -95,20 +95,49 @@ angular
           }
         }
       })
+
+         //requisitionForm
+         .state('requisition', {
+        url: '/requisition',
+        views: {
+          '@': {
+            templateUrl: 'views/requisition.html',
+            controller: 'RequisitionCtrl'
+          },
+          'navBar': {
+            templateUrl: 'views/nav-bar.html'
+          },
+          'menuBar': {
+            templateUrl: 'views/menu-bar.html'
+          }
+        }
+      });
   })
 
 
-.run(function($rootScope,$window) {
+.run(function($rootScope,$window,$location) {
         $rootScope.socket= null;
+        
         $rootScope.$on('$stateChangeSuccess',
-        function(event, toState, toParams, fromState, fromParams){
+        function(event, next, current,username){
+          // redirect to login page if not logged in and trying to access a restricted page
+          $rootScope.globals = {
+                currentUser: {
+                    username: username
+                }
+            };
+            var restrictedPage = $.inArray($location.path(), ['/login', '/registration','/requisition','/dashboard','/changePassword','/resetPassword','/forgotPassword','/loginsuccess']) === -1;
+            var loggedIn = $rootScope.globals.currentUser;
+            if (restrictedPage && !loggedIn) {
+                $location.path('/login');
+            }
             var session_Id =JSON.parse(sessionStorage.getItem('userData'));               
                if (!session_Id) {
                 templateUrl : 'views/login.html';
                 //$window.location.href = 'login.html';
                }
-            }
-        )
+            });
   });
 
+ 
  
