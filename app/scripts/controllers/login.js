@@ -30,17 +30,14 @@ angular.module('clarionEnterpriseApp')
     };
 
     authFactory.login(param).then(function (response){
-        if(response.data && angular.equals(response.data.email,$scope.vm.email)) {
-            // response.password = $scope.vm.password;
-            // $rootScope.socketObj;
+        if(response.success && response.data && angular.equals(response.data.email,$scope.vm.email)) {
             sessionStorage.setItem("userData", JSON.stringify(response));
-           
             $location.url("/dashboard");
         } else {
             $scope.vm.flag= true;
-            $scope.vm.message = "Invalid username or password";
-        }               
-       
+            $scope.vm.message = response.message;
+        }   
+
     });
   };
 });
