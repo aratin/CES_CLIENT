@@ -119,18 +119,8 @@ angular
         $rootScope.socket= null;
         
         $rootScope.$on('$stateChangeSuccess',
-        function(event, next, current,username){
+        function(event, next, current){
           // redirect to login page if not logged in and trying to access a restricted page
-          $rootScope.globals = {
-                currentUser: {
-                    username: username
-                }
-            };
-            var restrictedPage = $.inArray($location.path(), ['/login', '/registration','/requisition','/dashboard','/changePassword','/resetPassword','/forgotPassword','/loginsuccess']) === -1;
-            var loggedIn = $rootScope.globals.currentUser;
-            if (restrictedPage && !loggedIn) {
-                $location.path('/login');
-            }
             var session_Id =JSON.parse(sessionStorage.getItem('userData'));               
                if (!session_Id) {
                 templateUrl : 'views/login.html';
@@ -140,4 +130,9 @@ angular
   });
 
  
- 
+// $rootScope.$on('$stateChangeStart', 
+// function(event, toState, toParams, fromState, fromParams){ 
+//     event.preventDefault(); 
+//     // transitionTo() promise will be rejected with 
+//     // a 'transition prevented' error
+// })
