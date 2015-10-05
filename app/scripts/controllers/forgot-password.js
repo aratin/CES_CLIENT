@@ -16,13 +16,23 @@ angular.module('clarionEnterpriseApp')
      * if the form data is valid
      */
       $scope.vm = {
-    'email' : ''
+      email : '',
+      message: "",
+      flag: false,
    };
+  
     $scope.forgotpassword = function () {
       // make API call only if the form is valid
     authFactory.forgotPassword($scope.vm.email).then(function(response){
-      
+       if(response.success) {
+            // sessionStorage.setItem("userData", JSON.stringify(response));
+            // $location.url("/dashboard");
+        } else {
+            $scope.vm.flag= true;
+            $scope.vm.message = response.message;
+        }
      console.log(response);
     });
     };
   });
+

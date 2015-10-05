@@ -30,6 +30,7 @@ angular.module('clarionEnterpriseApp')
     };
 
     authFactory.login(param).then(function (response){
+      console.log(response);
         if(response.success && response.data && angular.equals(response.data.email,$scope.vm.email)) {
             sessionStorage.setItem("userData", JSON.stringify(response));
             $location.url("/dashboard");
