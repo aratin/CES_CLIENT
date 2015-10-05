@@ -115,24 +115,61 @@ angular
   })
 
 
-.run(function($rootScope,$window,$location) {
-        $rootScope.socket= null;
+// .run(function($rootScope,$window,$location) {
+//         $rootScope.socket= null;
         
-        $rootScope.$on('$stateChangeSuccess',
-        function(event, next, current){
-          // redirect to login page if not logged in and trying to access a restricted page
-            var session_Id =JSON.parse(sessionStorage.getItem('userData'));               
-               if (!session_Id) {
-                templateUrl : 'views/login.html';
-                //$window.location.href = 'login.html';
-               }
-            });
-  });
+//         $rootScope.$on('$stateChangeSuccess',
+//         function(event, next, current){
+//           // redirect to login page if not logged in and trying to access a restricted page
+//             var session_Id =JSON.parse(sessionStorage.getItem('userData'));               
+//                if (!session_Id) {
+//                 templateUrl : 'views/login.html';
+//                 //$window.location.href = 'login.html';
+//                }
+//             });
+//   });
 
  
-// $rootScope.$on('$stateChangeStart', 
-// function(event, toState, toParams, fromState, fromParams){ 
-//     event.preventDefault(); 
-//     // transitionTo() promise will be rejected with 
-//     // a 'transition prevented' error
-// })
+  .run(function ($rootScope, $location, $state, authFactory, $log, $window) {
+    // store the current state in the root-scope
+    $rootScope.$state = $state;
+    $rootScope.socket= null;
+    $rootScope.$on('$stateChangeSuccess',
+      function(event, toState, toParams, fromState, fromParams){
+          var session_Id =JSON.parse(sessionStorage.getItem('userData'));               
+             if (!session_Id) {
+              templateUrl : 'views/login.html';
+              //$window.location.href = 'login.html';
+             }
+          }
+      )
+
+    $rootScope.$on('$stateChangeStart', function (event, toState) {
+      $log.debug(event);
+      // check if already logged in
+    
+      if (!authFactory.isLoggedIn()) {
+
+        $rootScope.isLoggedIn = false;
+
+        // if not logged in, only redirect to sign-in for the secure pages
+        if (toState.name !== 'forgotPassword' && toState.name !== 'resetPassword') {
+         
+          $location.path('/login');
+        }
+      } else {
+        $rootScope.isLoggedIn = true;
+
+        // redirect to Mashup, if user is an end user
+        // redirect to dashboard, if user is a developer and already logged in
+        // if(AuthFactory.getUserRole().toLowerCase() === roles.USER.toLowerCase()){
+        //   $window.open('http://crossarm.clarionworld.com', '_self');
+        // } else {
+          if (toState.name === 'login') {
+            $location.path('/dashboard');
+          }
+        //}
+      }
+    });
+  });
+

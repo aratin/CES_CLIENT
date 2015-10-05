@@ -25,7 +25,10 @@ angular.module('clarionEnterpriseApp')
         });
       },
 
-      
+      isLoggedIn :function(){
+        var userData =JSON.parse(sessionStorage.getItem('userData'));
+        return (userData) ? userData.data['sessionId'] : false;
+      },
       //forgot password post the data
       forgotPassword: function (email) {
         var url = urls.API_DOMAIN + urls.FORGOT_PASSWORD;
@@ -76,6 +79,7 @@ angular.module('clarionEnterpriseApp')
           return result.data;
       });
     },
+    //Logout and redirect to login
      logout: function () {
        var url = urls.API_DOMAIN + urls.LOGOUT;
        var userData =JSON.parse(sessionStorage.getItem('userData'));    
@@ -84,7 +88,10 @@ angular.module('clarionEnterpriseApp')
           headers: {'Content-Type': 'application/json', 'session-id': userData.data['sessionId']},
           url: url
         }).then(function (result) {
-          
+           sessionStorage.setItem("userData", null); 
+           $state.go('signIn');
+           return result.data;
+
         });
       },
       //remember usrname/password
