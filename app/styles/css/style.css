@@ -17,3 +17,9 @@
     vertical-align: middle;
     position: relative;
 }
+.login-content .lc-block {
+    margin-top: 0!important;
+}
+body.login-content:before {
+    height: 40%;
+}

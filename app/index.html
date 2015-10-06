@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="login-content">
   <!--[if IE 9 ]><html class="ie9"><![endif]-->
   <head>
       <meta charset="utf-8">
@@ -9,28 +9,19 @@
         
       <!-- Vendor CSS -->
       <link href="styles/vendors/bower_components/animate.css/animate.min.css" rel="stylesheet">
+      <link href="styles/vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.css" rel="stylesheet">
       <link href="styles/vendors/bower_components/material-design-iconic-font/css/material-design-iconic-font.min.css" rel="stylesheet">
             
       <!-- CSS -->
       <link href="styles/css/app.min.1.css" rel="stylesheet">
       <link href="styles/css/app.min.2.css" rel="stylesheet">
-    
+      <link href="styles/css/style.css" rel="stylesheet">
   </head>     
-   <body ng-app="clarionEnterpriseApp" class="login-content">
-   <div ui-view="navBar"></div>
+   <body ng-app="clarionEnterpriseApp" class="login-content sw-toggled">
+   <!-- <div ui-view="navBar"></div>
    <div ui-view="menuBar"></div>
-    
+     -->
     <div ui-view=""></div>
-  
-   
-    
-
-    <!-- <div class="footer">
-      <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-      </div>
-    </div> -->
-
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -47,6 +38,7 @@
         <script src="styles/vendors/bower_components/jquery/dist/jquery.min.js"></script>
         <script src="styles/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="styles/vendors/bower_components/Waves/dist/waves.min.js"></script>
+        <script src="styles/vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.min.js"></script>
         <script src="styles/js/functions.js"></script>
       
         <script src="bower_components/angular/angular.js"></script>
