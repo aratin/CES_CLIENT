@@ -18,8 +18,9 @@ angular.module('clarionEnterpriseApp')
      };
   	 $scope.resetPassword = function () {
       // make API call only if the form is valid
+      $scope.pw1 = 'password';
       var token = $location.$$search.temp;
-       authFactory.updateForgotPassword({ token : token, newPassword: $scope.cp.password }).then(function(response){
+       authFactory.updateForgotPassword({ token : token, newPassword: $scope.pw1 }).then(function(response){
     	
         if(response.success) {
            $scope.vm.flag= false;

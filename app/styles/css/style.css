@@ -1,0 +1,19 @@
+.mini-charts .md {
+    font-size: 30px;
+    vertical-align: middle;
+    color: #fff;
+    margin-right: 10px;
+}
+.mini-charts-item:before{
+	width:60px;	
+}
+.login-content .lc-block1 {
+    background: #fff;
+    box-shadow: 0 1px 11px rgba(0, 0, 0, 0.27);
+    border-radius: 2px;
+    padding: 35px 55px 35px;
+    width: 800px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+}
