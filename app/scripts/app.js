@@ -153,7 +153,7 @@ angular
         $rootScope.isLoggedIn = false;
 
         // if not logged in, only redirect to sign-in for the secure pages
-        if (toState.name !== 'forgotPassword' && toState.name !== 'resetPassword') {
+        if (toState.name !== 'forgotPassword' && toState.name !== 'changePassword') {
          
           $location.path('/login');
         }

@@ -30,7 +30,7 @@ angular.module('clarionEnterpriseApp')
            $scope.vm.flag= false;
            $scope.vm.successFlag=true;
            $scope.vm.message = response.data.message;
-          
+          // $scope.vm.email="";
         } else {
             $scope.vm.flag= true;
             $scope.vm.successFlag=false;
