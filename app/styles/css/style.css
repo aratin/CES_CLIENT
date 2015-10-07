@@ -23,3 +23,6 @@
 body.login-content:before {
     height: 40%;
 }
+.dummydashboard{
+    overflow: hidden;
+}

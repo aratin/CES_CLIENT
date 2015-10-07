@@ -6,7 +6,7 @@
             <div class="fg-line" has-error>
                 <input type="email" name="email"  class="form-control" placeholder="Username" ng-model="vm.email" required>
                  <span ng-show="signin_form.email.$dirty && signin_form.email.$error.required">Email is required.</span>
-                 <span class="help-block" ng-show="signin_form.email.$dirty && signin_form.email.$error.email">Invalid Email address.</span>
+                 <span  ng-show="signin_form.email.$dirty && signin_form.email.$error.email">Invalid Email address.</span>
             </div>
         </div>
         <div class="input-group m-b-20" ng-class="{ 'has-error': signin_form.password.$dirty && signin_form.password.$error.required }">

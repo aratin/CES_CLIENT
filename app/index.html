@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="login-content">
+<html lang="en" class="login-content" ng-class="dummydashboard">
   <!--[if IE 9 ]><html class="ie9"><![endif]-->
   <head>
       <meta charset="utf-8">
@@ -9,7 +9,8 @@
         
       <!-- Vendor CSS -->
       <link href="styles/vendors/bower_components/animate.css/animate.min.css" rel="stylesheet">
-      <link href="styles/vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.css" rel="stylesheet">
+      <link href="styles/vendors/bower_components/sweetalert/dist/sweetalert-override.min.css" rel="stylesheet">
+
       <link href="styles/vendors/bower_components/material-design-iconic-font/css/material-design-iconic-font.min.css" rel="stylesheet">
             
       <!-- CSS -->
@@ -17,11 +18,15 @@
       <link href="styles/css/app.min.2.css" rel="stylesheet">
       <link href="styles/css/style.css" rel="stylesheet">
   </head>     
-   <body ng-app="clarionEnterpriseApp" class="login-content sw-toggled">
-   <!-- <div ui-view="navBar"></div>
+   <body ng-app="clarionEnterpriseApp" class="login-content sw-toggled" ng-class="sw-toggled">
+   <div ui-view="navBar"></div>
    <div ui-view="menuBar"></div>
-     -->
+
+    
     <div ui-view=""></div>
+
+     <div ui-view="footer"></div>
+     
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -35,11 +40,27 @@
     </script>
 
        <!-- Javascript Libraries -->
-        <script src="styles/vendors/bower_components/jquery/dist/jquery.min.js"></script>
-        <script src="styles/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="styles/vendors/bower_components/Waves/dist/waves.min.js"></script>
-        <script src="styles/vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.min.js"></script>
-        <script src="styles/js/functions.js"></script>
+       <script src="styles/vendors/bower_components/jquery/dist/jquery.min.js"></script> 
+       <script src="styles/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script> 
+       <script src="styles/vendors/bower_components/flot/jquery.flot.js"></script> 
+       <script src="styles/vendors/bower_components/flot/jquery.flot.resize.js"></script> 
+       <script src="styles/vendors/bower_components/flot.curvedlines/curvedLines.js"></script> 
+       <script src="styles/vendors/sparklines/jquery.sparkline.min.js"></script> 
+       <script src="styles/vendors/bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script> 
+       <script src="styles/vendors/bower_components/moment/min/moment.min.js"></script> 
+       <script src="styles/vendors/bower_components/fullcalendar/dist/fullcalendar.min.js"></script> 
+       <script src="styles/vendors/bower_components/simpleWeather/jquery.simpleWeather.min.js"></script> 
+       <script src="styles/vendors/bower_components/jquery.nicescroll/jquery.nicescroll.min.js"></script> 
+       <script src="styles/vendors/bower_components/Waves/dist/waves.min.js"></script> 
+       <script src="styles/vendors/bootstrap-growl/bootstrap-growl.min.js"></script> 
+       <script src="styles/vendors/bower_components/sweetalert/dist/sweetalert.min.js"></script> 
+
+        <script src="styles/js/flot-charts/curved-line-chart.js"></script> 
+        <script src="styles/js/flot-charts/line-chart.js"></script> 
+        <script src="styles/js/charts.js"></script> 
+        <script src="styles/js/charts.js"></script> 
+        <script src="styles/js/functions.js"></script> 
+        <script src="styles/js/demo.js"></script>
       
         <script src="bower_components/angular/angular.js"></script>
         <script src="bower_components/angular-animate/angular-animate.js"></script>

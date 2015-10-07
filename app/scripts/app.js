@@ -92,6 +92,9 @@ angular
           },
           'menuBar': {
             templateUrl: 'views/menu-bar.html'
+          },
+          'footer': {
+            templateUrl: 'views/footer.html'
           }
         }
       })
@@ -153,7 +156,7 @@ angular
         $rootScope.isLoggedIn = false;
 
         // if not logged in, only redirect to sign-in for the secure pages
-        if (toState.name !== 'forgotPassword' && toState.name !== 'changePassword') {
+        if (toState.name !== 'forgotPassword' && toState.name !== 'changePassword' && toState.name !== 'resetPassword') {
          
           $location.path('/login');
         }
