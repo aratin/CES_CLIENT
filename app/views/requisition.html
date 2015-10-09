@@ -20,13 +20,9 @@
               <div class="form-group">
                 <div class="fg-line">
                   <div class="select">
-                    <select class="form-control">
-                      <option>Select an Option</option>
-                      <option>Option 1</option>
-                      <option>Option 2</option>
-                      <option>Option 3</option>
-                      <option>Option 4</option>
-                      <option>Option 5</option>
+                    <select  class="form-control" ng-model="selectedcustomerName">
+                        <option value="">Select an Customer</option>
+                        <option ng-repeat="customerName in customerNames" value="{{customerName.name}}">{{customerName.name}}</option>
                     </select>
                   </div>
                 </div>
@@ -37,14 +33,10 @@
               <div class="form-group">
                 <div class="fg-line">
                   <div class="select">
-                    <select class="form-control">
-                      <option>Select an Option</option>
-                      <option>Option 1</option>
-                      <option>Option 2</option>
-                      <option>Option 3</option>
-                      <option>Option 4</option>
-                      <option>Option 5</option>
-                    </select>
+                   <select  class="form-control"ng-model="selectedcertainty">
+                      <option value="">Select an Certainty</option>
+                      <option ng-repeat="certainty in certaintys" value="{{certainty.name}}">{{certainty.name}}</option>
+                  </select>
                   </div>
                 </div>
               </div>
@@ -54,14 +46,10 @@
               <div class="form-group">
                 <div class="fg-line">
                   <div class="select">
-                    <select class="form-control">
-                      <option>Select an Option</option>
-                      <option>Option 1</option>
-                      <option>Option 2</option>
-                      <option>Option 3</option>
-                      <option>Option 4</option>
-                      <option>Option 5</option>
-                    </select>
+                  <select  class="form-control"ng-model="selectedcriticality">
+                      <option value=" ">Select an Criticality</option>
+                      <option ng-repeat="criticality in criticalitys" value="{{criticality.name}}">{{criticality.name}}</option>
+                  </select>
                   </div>
                 </div>
               </div>
@@ -92,14 +80,9 @@
               <div class="form-group">
                 <div class="fg-line">
                   <div class="select">
-                    <select class="form-control">
-                      <option>Select an Option</option>
-                      <option>Option 1</option>
-                      <option>Option 2</option>
-                      <option>Option 3</option>
-                      <option>Option 4</option>
-                      <option>Option 5</option>
-                    </select>
+                   <select class="form-control"ng-model="selectedanticipatedDurations">
+                      <option ng-repeat="anticipatedDuration in anticipatedDurations" value="{{anticipatedDuration.name}}">{{anticipatedDuration.name}}</option>
+                  </select>
                   </div>
                 </div>
               </div>
@@ -147,12 +130,9 @@
           <div class="form-group">
             <div class="col-sm-12 m-b-25">
               <p class="f-500 c-black m-b-15">Core Technology</p>
-              <select class="selectpicker" multiple>
-                <option>Drupal</option>
-                <option>Java</option>
-                <option>.Net</option>
-                <option>Angular</option>
-                <option>Php</option>
+              <select class="selectpicker" multiple 
+                     ng-model="selectedtechnologys">
+                  <option ng-repeat="technology in technologys" >{{technology.name}}</option>
               </select>
             </div>
             <div class="col-sm-12">
