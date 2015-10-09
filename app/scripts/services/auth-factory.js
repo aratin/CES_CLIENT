@@ -94,6 +94,23 @@ angular.module('clarionEnterpriseApp')
 
         });
       },
+
+      //Get Core technology 
+
+       coretechnology: function () {
+       var url = urls.API_DOMAIN + urls.CORETECHNOLOGY + 'active';
+       var userData =JSON.parse(sessionStorage.getItem('userData'));    
+        return $http({
+          method: 'GET',
+          headers: {'Content-Type': 'application/json', 'session-id': userData.data['sessionId']},
+          url: url
+        }).then(function (result) {
+           sessionStorage.setItem("userData", null); 
+           return result.data;
+
+        });
+      },
+
       //remember usrname/password
       rememberPassword: function(data) {
             function fetchValue(data) {

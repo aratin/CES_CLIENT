@@ -14,5 +14,6 @@ angular.module('clarionEnterpriseApp')
     	 FORGOT_PASSWORD:'forgotpassword',
     	 UPDATE_FORGOTPASSWORD:'updateforgotpassword',
     	 CHANGE_PASSWORD:'changepassword',
-    	 LOGOUT:'logout'
+    	 LOGOUT:'logout',
+    	 CORETECHNOLOGY:'coretechnologies/'
   });

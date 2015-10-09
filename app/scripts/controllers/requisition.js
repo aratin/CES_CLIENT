@@ -41,11 +41,5 @@ angular.module('clarionEnterpriseApp')
   					];
 
   	//dynamically get Anticipated duration 
-  	$scope.technologys=[
-  						{id: 1, name: '.Net'},
-  						{ id: 2, name:  'PHP'},
-  						{ id: 3, name:  'ROR'},
-  						{ id: 4, name:  'QA'},
-  						{ id: 5, name:  'Design'}
-  					];	
+  	$scope.coreTechnologies=
   });
