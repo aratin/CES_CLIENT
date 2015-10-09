@@ -137,15 +137,29 @@ angular
     // store the current state in the root-scope
     $rootScope.$state = $state;
     $rootScope.socket= null;
+    var toStateName= "login";
+    
     $rootScope.$on('$stateChangeSuccess',
       function(event, toState, toParams, fromState, fromParams){
-          var session_Id =JSON.parse(sessionStorage.getItem('userData'));               
+             var session_Id =JSON.parse(sessionStorage.getItem('userData'));               
              if (!session_Id) {
               templateUrl : 'views/login.html';
               //$window.location.href = 'login.html';
+                       /*Based on the view show/hid the header footer */
+                toStateName=toState.name;
              }
+
+
           }
       )
+
+
+      if (toStateName == 'login' || toStateName == 'forgotPassword' || toStateName== 'changePassword' || toStateName == 'resetPassword') {
+        $rootScope.showHeadFooter=false;
+      }else{
+          $rootScope.showHeadFooter=true;
+      }
+      console.log("header fouter is visible ="+ $rootScope.showHeadFooter);
 
     $rootScope.$on('$stateChangeStart', function (event, toState) {
       $log.debug(event);
@@ -154,12 +168,15 @@ angular
       if (!authFactory.isLoggedIn()) {
 
         $rootScope.isLoggedIn = false;
+       
 
         // if not logged in, only redirect to sign-in for the secure pages
         if (toState.name !== 'forgotPassword' && toState.name !== 'changePassword' && toState.name !== 'resetPassword') {
-         
+
           $location.path('/login');
         }
+
+
       } else {
         $rootScope.isLoggedIn = true;
 

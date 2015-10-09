@@ -10834,7 +10834,7 @@ input:focus {
   margin-right: 2px;
 }
 
-.listview .lv-attrs > li:not(.info):not(.primary):not(.warning):not(.danger) {
+.listview .lv-attrs > li:not(.info):not(.primary):not(.warning):not(.danger):not(.success) {
   border: 1px solid #dedede;
   background: #ffffff;
   color: #5e5e5e;
@@ -10849,6 +10849,12 @@ input:focus {
 .listview .lv-attrs > li.primary {
   border: 1px solid #2196f3;
   background: #2196f3;
+  color: #ffffff;
+}
+
+.listview .lv-attrs > li.success {
+  border: 1px solid #4CAF50;
+  background: #4CAF50;
   color: #ffffff;
 }
 

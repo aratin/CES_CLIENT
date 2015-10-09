@@ -17,12 +17,12 @@
     vertical-align: middle;
     position: relative;
 }
-.login-content .lc-block {
-    margin-top: 0!important;
+.listview .lv-header-alt{
+	position:relative;
+	padding:23px 26px;
 }
-body.login-content:before {
-    height: 40%;
-}
-.dummydashboard{
-    overflow: hidden;
+.listview .btn-float {
+    z-index: 2;
+    right: 25px;
+    bottom: -23px;
 }

@@ -18,16 +18,19 @@
       <link href="styles/css/app.min.2.css" rel="stylesheet">
       <link href="styles/css/style.css" rel="stylesheet">
   </head>     
-   <body ng-app="clarionEnterpriseApp" class="login-content sw-toggled" ng-class="sw-toggled">
-   <div ui-view="navBar"></div>
-   <div ui-view="menuBar"></div>
+<!--   html class="login-content"
+body class="login-content sw-toggled"
 
-    
-    <div ui-view=""></div>
 
-     <div ui-view="footer"></div>
+@Dashboard Page
+html style="overflow: hidden;"
+body class="sw-toggled"*/ -->
+   <body ng-app="clarionEnterpriseApp" class="login-content sw-toggled"  ng-class="{'sw-toggled': showHeadFooter" ng-class="sw-toggled">
+     <div ui-view="navBar" ng-show="showHeadFooter"></div>
+     <div ui-view="menuBar" ng-show="showHeadFooter"></div>
+     <div ui-view=""></div>
+     <div ui-view="footer" ng-show="showHeadFooter"></div>
      
-
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
        !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){

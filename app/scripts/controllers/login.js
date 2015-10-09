@@ -40,6 +40,10 @@ angular.module('clarionEnterpriseApp')
         }   
 
     });
+
+    $scope.myfuncion=function(){
+      
+    }
   };
 });
 
