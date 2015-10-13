@@ -8,7 +8,7 @@
  * Factory in the clarionEnterpriseApp.
  */
 angular.module('clarionEnterpriseApp')
-  .factory('authFactory', function ($http, $state, urls) {
+  .factory('authFactory', function ($http, $state, urls,$rootScope) {
   	 return {
     // Service logic
 
@@ -24,7 +24,14 @@ angular.module('clarionEnterpriseApp')
           return result.data;        
         });
       },
-
+      showHeaderFooter:function(toState){
+         if (toState == 'login' || toState == 'forgotPassword' || toState== 'changePassword' || toState == 'resetPassword') {
+              $rootScope.showHeadFooter=false;
+          }else{
+              $rootScope.showHeadFooter=true;
+          }
+         console.log("header fouter  visible ="+ $rootScope.showHeadFooter);
+      },
       isLoggedIn :function(){
         var userData =JSON.parse(sessionStorage.getItem('userData'));
         return (userData) ? userData.data['sessionId'] : false;
@@ -82,14 +89,16 @@ angular.module('clarionEnterpriseApp')
     //Logout and redirect to login
      logout: function () {
        var url = urls.API_DOMAIN + urls.LOGOUT;
-       var userData =JSON.parse(sessionStorage.getItem('userData'));    
+        var userData =JSON.parse(sessionStorage.getItem('userData'));    
+        $rootScope.isLoggedIn = false;  
         return $http({
           method: 'GET',
           headers: {'Content-Type': 'application/json', 'session-id': userData.data['sessionId']},
           url: url
         }).then(function (result) {
            sessionStorage.setItem("userData", null); 
-           $state.go('signIn');
+           $rootScope.isLoggedIn = false;
+           $state.go('login');
            return result.data;
 
         });
@@ -98,17 +107,54 @@ angular.module('clarionEnterpriseApp')
       //Get Core technology 
 
        coretechnology: function () {
-       var url = urls.API_DOMAIN + urls.CORETECHNOLOGY + 'active';
-       var userData =JSON.parse(sessionStorage.getItem('userData'));    
-        return $http({
-          method: 'GET',
-          headers: {'Content-Type': 'application/json', 'session-id': userData.data['sessionId']},
-          url: url
-        }).then(function (result) {
-           sessionStorage.setItem("userData", null); 
-           return result.data;
+         var url = urls.API_DOMAIN + urls.CORETECHNOLOGY + '/active';
+         var userData =JSON.parse(sessionStorage.getItem('userData'));    
+          return $http({
+            method: 'GET',
+            headers: {'Content-Type': 'application/json', 'session-id': userData.data['sessionId']},
+            url: url
+          }).then(function (result) {
+            
+             return result.data;
 
-        });
+          });
+      },
+       certaintys: function () {
+         var url = urls.API_DOMAIN + urls.CERTAITYS + '/active';
+         var userData =JSON.parse(sessionStorage.getItem('userData'));    
+          return $http({
+            method: 'GET',
+            headers: {'Content-Type': 'application/json', 'session-id': userData.data['sessionId']},
+            url: url
+          }).then(function (result) {
+            
+             return result.data;
+
+          });
+      },
+       cirticalities: function () {
+         var url = urls.API_DOMAIN + urls.CRITICALITY + '/active';
+         var userData =JSON.parse(sessionStorage.getItem('userData'));    
+          return $http({
+            method: 'GET',
+            headers: {'Content-Type': 'application/json', 'session-id': userData.data['sessionId']},
+            url: url
+          }).then(function (result) {
+            
+             return result.data;
+
+          });
+      },
+       customers: function () {
+         var url = urls.API_DOMAIN + urls.CUSTOMERS ;
+         var userData =JSON.parse(sessionStorage.getItem('userData'));    
+          return $http({
+            method: 'GET',
+            headers: {'Content-Type': 'application/json', 'session-id': userData.data['sessionId']},
+            url: url
+          }).then(function (result) {
+             return result.data;
+          });
       },
 
       //remember usrname/password

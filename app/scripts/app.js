@@ -100,7 +100,7 @@ angular
       })
 
          //requisitionForm
-         .state('requisition', {
+      .state('requisition', {
         url: '/requisition',
         views: {
           '@': {
@@ -137,8 +137,7 @@ angular
     // store the current state in the root-scope
     $rootScope.$state = $state;
     $rootScope.socket= null;
-    var toStateName= "login";
-    
+  
     $rootScope.$on('$stateChangeSuccess',
       function(event, toState, toParams, fromState, fromParams){
              var session_Id =JSON.parse(sessionStorage.getItem('userData'));               
@@ -146,20 +145,14 @@ angular
               templateUrl : 'views/login.html';
               //$window.location.href = 'login.html';
                        /*Based on the view show/hid the header footer */
-                toStateName=toState.name;
+           
              }
-
-
+           
+              authFactory.showHeaderFooter(toState.name);
+           
           }
       )
 
-
-      if (toStateName == 'login' || toStateName == 'forgotPassword' || toStateName== 'changePassword' || toStateName == 'resetPassword') {
-        $rootScope.showHeadFooter=false;
-      }else{
-          $rootScope.showHeadFooter=true;
-      }
-      console.log("header fouter is visible ="+ $rootScope.showHeadFooter);
 
     $rootScope.$on('$stateChangeStart', function (event, toState) {
       $log.debug(event);
@@ -167,18 +160,18 @@ angular
     
       if (!authFactory.isLoggedIn()) {
 
-        $rootScope.isLoggedIn = false;
-       
+          $rootScope.isLoggedIn = false;
+         
 
-        // if not logged in, only redirect to sign-in for the secure pages
-        if (toState.name !== 'forgotPassword' && toState.name !== 'changePassword' && toState.name !== 'resetPassword') {
-
-          $location.path('/login');
-        }
+          // if not logged in, only redirect to sign-in for the secure pages
+          if (toState.name !== 'forgotPassword' && toState.name !== 'changePassword' && toState.name !== 'resetPassword' && toState.name!=='logout') {
+               $location.path('/login');
+          
+          }
 
 
       } else {
-        $rootScope.isLoggedIn = true;
+          $rootScope.isLoggedIn = true;
 
         // redirect to Mashup, if user is an end user
         // redirect to dashboard, if user is a developer and already logged in
@@ -186,10 +179,10 @@ angular
         //   $window.open('http://crossarm.clarionworld.com', '_self');
         // } else {
           if (toState.name === 'login') {
-            $location.path('/dashboard');
+          //  $location.path('/dashboard');
           }
-        //}
       }
     });
+    
   });
 

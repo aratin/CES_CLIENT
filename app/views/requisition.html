@@ -1,5 +1,5 @@
 <section id="content">
-    <div class="container">
+    <div class="container"  ng-init="loadComboData()">
       <div class="block-header">
         <h2>Requisition Form</h2>
       </div>
@@ -22,7 +22,7 @@
                   <div class="select">
                     <select  class="form-control" ng-model="selectedcustomerName">
                         <option value="">Select an Customer</option>
-                        <option ng-repeat="customerName in customerNames" value="{{customerName.name}}">{{customerName.name}}</option>
+                        <option ng-repeat="customerName in customerNames" value="{{customerName.CLIENT_ID}}">{{customerName.CLIENT_NAME}}</option>
                     </select>
                   </div>
                 </div>
@@ -35,7 +35,7 @@
                   <div class="select">
                    <select  class="form-control"ng-model="selectedcertainty">
                       <option value="">Select an Certainty</option>
-                      <option ng-repeat="certainty in certaintys" value="{{certainty.name}}">{{certainty.name}}</option>
+                      <option ng-repeat="certainty in certaintys" value="{{certainty.name}}">{{certainty.certainityName}}</option>
                   </select>
                   </div>
                 </div>

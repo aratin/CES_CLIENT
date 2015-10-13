@@ -9,18 +9,16 @@
  */
 angular.module('clarionEnterpriseApp')
   .constant('urls',{
-  		API_DOMAIN :'http://40.122.127.83:7000/',
+  		API_DOMAIN :'http://192.168.61.24:4000/',
     	 LOGIN : 'login',
     	 FORGOT_PASSWORD:'forgotpassword',
     	 UPDATE_FORGOTPASSWORD:'updateforgotpassword',
     	 CHANGE_PASSWORD:'changepassword',
-<<<<<<< HEAD
-    	 LOGOUT:'logout'
+    	 LOGOUT:'logout',
+    	 CERTAITYS:'certainities',
+    	 CORETECHNOLOGY:'coretechnology',
+    	 CRITICALITY:"criticalities",
+    	 CUSTOMERS:"clients"
   });
 
-  
-=======
-    	 LOGOUT:'logout',
-    	 CORETECHNOLOGY:'coretechnologies/'
-  });
->>>>>>> 4b6928b9718fa2d31db3476969841e1e133c85e4
+// server URL-http://40.122.127.83:9000/
