@@ -21,12 +21,19 @@
     </form>  
       
     <img ng-if="vm.showLoader" ng-src="/images/loader.gif" alt="Please wait.." />
-     
-    <div class="btn-demo">
-        <button ng-disabled="signin_form.email.$dirty && signin_form.email.$invalid || signin_form.password.$dirty && signin_form.password.$invalid" type="submit" ng-click="login()"  class="btn btn-success">Login</button>
-        <button class="btn btn-danger btn-icon-text"  ng-click="logonWithGoogle()"><i class="socicon md socicon-google"></i>Login with Google</button>
+    <div class="btn-demo" style="width:80%; height:50px; margin:0 auto;">
+        
+       <span style="width:80%; height:50px; margin:0 auto;"> <button ng-disabled="signin_form.email.$dirty && signin_form.email.$invalid || signin_form.password.$dirty && signin_form.password.$invalid" type="submit" ng-click="login()"  class="btn btn-success">Login</button></span>  
+       <span style="width:80%; height:50px; margin:0 auto; pull-left:true;">
+         <google-plus-signin clientid="525619856429-85apndt9mfi9okvcv15v7nfuljr2d7pi.apps.googleusercontent.com" /></span>       
+        <!-- <button class="btn btn-danger btn-icon-text" id="my-signin2"  ><i class="socicon md socicon-google"></i>Login with Google</button> -->
+       <!--   <div class="g-signin2" data-onsuccess="onSignIn"></div>  -->
+        <!-- <div class="g-signin2" data-width="200"  data-longtitle="true">
        
-    </div>
+           <span class="g-signin" ng-click="signIn()"></span> -->
+       
+    </div>  
+  
     <br><br>
     
       
@@ -40,18 +47,7 @@
      
      <img ng-if="vm.showLoader" ng-src="/images/loader.gif" alt="Please wait.." />
      
-    <div class="btn-demo" style="width:80%; height:50px; margin:0 auto;">
-        
-       <span style="width:80%; height:50px; margin:0 auto;"> <button ng-disabled="signin_form.email.$dirty && signin_form.email.$invalid || signin_form.password.$dirty && signin_form.password.$invalid" type="submit" ng-click="login()"  class="btn btn-success">Login</button></span>  
-       <span style="width:80%; height:50px; margin:0 auto; pull-left:true;">
-          <google-plus-signin clientid="525619856429-85apndt9mfi9okvcv15v7nfuljr2d7pi.apps.googleusercontent.com" /></span>       
-        <!-- <button class="btn btn-danger btn-icon-text" id="my-signin2"  ><i class="socicon md socicon-google"></i>Login with Google</button> -->
-       <!--   <div class="g-signin2" data-onsuccess="onSignIn"></div>  -->
-        <!-- <div class="g-signin2" data-width="200"  data-longtitle="true">
-       
-           <span class="g-signin" ng-click="signIn()"></span> -->
-       
-    </div>
+   
     </form>  
     
     

@@ -133,7 +133,7 @@ angular.module('clarionEnterpriseApp')
 
            gapi.auth.signOut();
            
-           gapi.auth2.getAuthInstance().signOut()
+           //gapi.auth2.getAuthInstance().signOut()
 
            return result.data;
 
