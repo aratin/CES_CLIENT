@@ -10,6 +10,7 @@
       <!-- Vendor CSS -->
       <link href="styles/vendors/bower_components/animate.css/animate.min.css" rel="stylesheet">
       <link href="styles/vendors/bower_components/sweetalert/dist/sweetalert-override.min.css" rel="stylesheet">
+      <link href="styles/vendors/bower_components/sweetalert/dist/sweetalert-override.min.css" rel="stylesheet">
 
       <link href="styles/vendors/bower_components/material-design-iconic-font/css/material-design-iconic-font.min.css" rel="stylesheet">
             
@@ -17,10 +18,11 @@
       <link href="styles/css/app.min.1.css" rel="stylesheet">
       <link href="styles/css/app.min.2.css" rel="stylesheet">
       <link href="styles/css/style.css" rel="stylesheet">
+      <meta name="google-signin-client_id" content="525619856429-85apndt9mfi9okvcv15v7nfuljr2d7pi.apps.googleusercontent.com">
   </head>     
 
 
-   <body ng-app="clarionEnterpriseApp" class="logincontent sw-toggled" ng-class="{ 'logincontent' : (showHeaderFooter==false)}" >
+   <body ng-app="clarionEnterpriseApp" class="login-content sw-toggled" ng-class="{ 'logincontent' : (showHeaderFooter==false)}" >
      <div ui-view="navBar"></div>
      <div ui-view="menuBar" ></div>
      <div ui-view=""></div>
@@ -68,6 +70,9 @@
         <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
         <script src="bower_components/angular-touch/angular-touch.js"></script>
         <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="bower_components/angular-directive.g-signin/google-plus-signin.js"></script>
+
+
 
     <!-- endbuild -->
 
@@ -86,7 +91,8 @@
         <script src="scripts/controllers/dashboard.js"></script>
         <script src="scripts/controllers/change-password.js"></script>
         <script src="scripts/controllers/requisition.js"></script>
-    <script src="scripts/directives/passwordmatch.js"></script>
+        <script src="scripts/directives/passwordmatch.js"></script>
+       
     <!-- endbuild -->
 </body>
 </html>

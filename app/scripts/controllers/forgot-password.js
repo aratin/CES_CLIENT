@@ -28,9 +28,16 @@ angular.module('clarionEnterpriseApp')
       
        if(response.success) {
            $scope.vm.flag= false;
-           $scope.vm.successFlag=true;
+          // $scope.vm.successFlag=true;
            $scope.vm.message = response.data.message;
            $scope.vm.email="";
+
+             swal({   
+                    title: "Success",   
+                    text: response.data.message,   
+                    timer: 2000,   
+                    showConfirmButton: false 
+                });
           // $scope.vm.email="";
         } else {
             $scope.vm.flag= true;
@@ -40,5 +47,12 @@ angular.module('clarionEnterpriseApp')
      console.log(response);
     });
     };
+
+
+  
+         
+
+
+
   });
 

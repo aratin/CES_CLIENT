@@ -1,5 +1,6 @@
 <div class="lc-block toggled" id="l-login">
     <div ng-if="vm.flag" class="alert alert-danger"><i class="glyphicon glyphicon-exclamation-sign"></i>{{vm.message}}</div>
+    <div class="logo"><img src="styles/img/logo.png" width="151" height="153" alt=""/></div><br>
     <form name="signin_form" class="form floating-label" ng-submit="login()" novalidate>
         <div class="input-group m-b-20">
             <span class="input-group-addon"><i class="md md-person"></i></span>
@@ -17,23 +18,46 @@
             </div>
         </div>
         <div class="clearfix"></div>
-    </form>  
-      
     
-     
-    <div class="btn-demo">
-        <button ng-disabled="signin_form.email.$dirty && signin_form.email.$invalid || signin_form.password.$dirty && signin_form.password.$invalid" type="submit" ng-click="login()"  class="btn btn-success">Login</button>
-        <button class="btn btn-danger btn-icon-text"  ng-click="logonWithGoogle()"><i class="socicon md socicon-google"></i>Login with Google</button>
-       
-    </div>
-    <br><br>
-    <div class="checkbox">
+      
+     <div class="checkbox">
            <label>
                 <input type="checkbox" value=""> <i class="input-helper"></i>Keep me signed in
            </label>
             <span class="pull-right"><a ui-sref="forgotPassword">Forgot Password?</a></span>
     </div>
-   
+    <br><br>
+     
+    <div class="btn-demo" style="width:80%; height:50px; margin:0 auto;">
+        
+       <span style="width:80%; height:50px; margin:0 auto;"> <button ng-disabled="signin_form.email.$dirty && signin_form.email.$invalid || signin_form.password.$dirty && signin_form.password.$invalid" type="submit" ng-click="login()"  class="btn btn-success">Login</button></span>  
+       <span style="width:80%; height:50px; margin:0 auto; pull-left:true;">
+          <google-plus-signin clientid="525619856429-85apndt9mfi9okvcv15v7nfuljr2d7pi.apps.googleusercontent.com" /></span>       
+        <!-- <button class="btn btn-danger btn-icon-text" id="my-signin2"  ><i class="socicon md socicon-google"></i>Login with Google</button> -->
+       <!--   <div class="g-signin2" data-onsuccess="onSignIn"></div>  -->
+        <!-- <div class="g-signin2" data-width="200"  data-longtitle="true">
+       
+           <span class="g-signin" ng-click="signIn()"></span> -->
+       
+    </div>
+    </form>  
+    
+    
+   <!-- <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+   <script src="https://apis.google.com/js/platform.js" async defer></script> -->
 </div>
 
+ <script>
+    
+    // function onSignIn(googleUser) {
+    //   var profile = googleUser.getBasicProfile();
+    //   console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    //   console.log('Name: ' + profile.getName());
+    //   console.log('Image URL: ' + profile.getImageUrl());
+    //   console.log('Email: ' + profile.getEmail());
+    // }
+   
+
+
+  </script>
 
