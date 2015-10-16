@@ -166,7 +166,7 @@ angular
          
 
           // if not logged in, only redirect to sign-in for the secure pages
-          if (toState.name !== 'forgotPassword' && toState.name !== 'changePassword' && toState.name !== 'resetPassword' && toState.name!=='logout') {
+          if (toState.name !== 'forgotPassword' && toState.name !== 'resetPassword' && toState.name!=='logout') {
                $location.path('/login');
           
           }
