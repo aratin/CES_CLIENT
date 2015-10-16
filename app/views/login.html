@@ -19,7 +19,7 @@
         <div class="clearfix"></div>
     </form>  
       
-    
+    <img ng-if="vm.showLoader" ng-src="/images/loader.gif" alt="Please wait.." />
      
     <div class="btn-demo">
         <button ng-disabled="signin_form.email.$dirty && signin_form.email.$invalid || signin_form.password.$dirty && signin_form.password.$invalid" type="submit" ng-click="login()"  class="btn btn-success">Login</button>

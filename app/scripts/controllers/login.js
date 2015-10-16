@@ -13,7 +13,8 @@ angular.module('clarionEnterpriseApp').controller('LoginCtrl', function ($scope,
         message: "",
         flag: false,
         email: '',
-        password:'' 
+        password:'',
+        showLoader : false
     };  
   
   /** @method $scope.signIn
@@ -23,13 +24,14 @@ angular.module('clarionEnterpriseApp').controller('LoginCtrl', function ($scope,
   */
  
 	$scope.login = function () {
-  
+  $scope.vm.showLoader = true;
     var param ={
         email : $scope.vm.email,
         password :$scope.vm.password
     };
 
     authFactory.login(param).then(function (response){
+      $scope.vm.showLoader = false;
       console.log(response);
         if(response.success && response.data && angular.equals(response.data.email,$scope.vm.email)) {
             sessionStorage.setItem("userData", JSON.stringify(response));

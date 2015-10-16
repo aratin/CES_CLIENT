@@ -19,13 +19,15 @@ angular.module('clarionEnterpriseApp')
       email : '',
       message: "",
       flag: false,
-      successFlag:false
+      successFlag:false,
+      showLoader : false
      };
   
     $scope.forgotpassword = function () {
+      $scope.vm.showLoader = true;
       // make API call only if the form is valid
     authFactory.forgotPassword($scope.vm.email).then(function(response){
-      
+      $scope.vm.showLoader = false;
        if(response.success) {
            $scope.vm.flag= false;
            $scope.vm.successFlag=true;
