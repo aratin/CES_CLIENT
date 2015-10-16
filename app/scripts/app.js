@@ -11,12 +11,14 @@
 angular
   .module('clarionEnterpriseApp', [
     'ngAnimate',
+    'directive.g+signin',
     'ngCookies',
     'ngResource'
     ,'ngRoute',
     'ngSanitize',
     'ngTouch',
     'ui.router'
+    
   ])
 
  .config(function ($urlRouterProvider, $stateProvider) {

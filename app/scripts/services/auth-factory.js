@@ -24,13 +24,43 @@ angular.module('clarionEnterpriseApp')
           return result.data;        
         });
       },
+       //login functionality post the login data
+      loginWithGoogleold: function (data) {
+        var url = urls.API_DOMAIN + urls.LOGIN_WITH_GOOGLE +data;
+        return $http({
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          url: url
+         
+        }).then(function (result) {
+          return result.data;        
+        });
+      },
+
+
+       loginWithGoogle: function (data) {
+       var url = urls.API_DOMAIN + urls.LOGIN_WITH_GOOGLE+'token?'+ data;
+        var userData =JSON.parse(sessionStorage.getItem('userData'));    
+        $rootScope.isLoggedIn = false;  
+        return $http({
+          method: 'GET',
+          headers: {'Content-Type': 'application/json'},
+          url: url
+        }).then(function (result) {
+           sessionStorage.setItem("userData", null); 
+           $rootScope.isLoggedIn = false;
+           $state.go('login');
+           return result.data;
+
+       });
+      },
       showHeaderFooter:function(toState){
          if (toState == 'login' || toState == 'forgotPassword' || toState== 'changePassword' || toState == 'resetPassword') {
               $rootScope.showHeadFooter=false;
           }else{
               $rootScope.showHeadFooter=true;
           }
-         console.log("header fouter  visible ="+ $rootScope.showHeadFooter);
+        // console.log("header fouter  visible ="+ $rootScope.showHeadFooter);
       },
       isLoggedIn :function(){
         var userData =JSON.parse(sessionStorage.getItem('userData'));
@@ -89,7 +119,8 @@ angular.module('clarionEnterpriseApp')
     //Logout and redirect to login
      logout: function () {
        var url = urls.API_DOMAIN + urls.LOGOUT;
-        var userData =JSON.parse(sessionStorage.getItem('userData'));    
+        var userData =JSON.parse(sessionStorage.getItem('userData'));
+        //Var auth2 = gapi.auth2.getAuthInstance();    
         $rootScope.isLoggedIn = false;  
         return $http({
           method: 'GET',
@@ -99,6 +130,11 @@ angular.module('clarionEnterpriseApp')
            sessionStorage.setItem("userData", null); 
            $rootScope.isLoggedIn = false;
            $state.go('login');
+
+           gapi.auth.signOut();
+           
+           gapi.auth2.getAuthInstance().signOut()
+
            return result.data;
 
         });
