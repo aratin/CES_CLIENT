@@ -9,7 +9,7 @@
  */
 angular.module('clarionEnterpriseApp')
   .constant('urls',{
-  		API_DOMAIN :'http://192.168.61.24:4000/',
+  		API_DOMAIN :'https://192.168.61.24:4043/',
     	 LOGIN : 'login',
     	 FORGOT_PASSWORD:'forgotpassword',
     	 UPDATE_FORGOTPASSWORD:'updateforgotpassword',
